@@ -60,6 +60,18 @@ if __name__ == "__main__":
             ['c','cb'],
             ['d','Cd']]
     perm = [['a','b','c','d','e'], ['d','e','a','b','C']]
-    loop = get_loop_edge_map(edge_names, maps, perm, 3)
+    loop = get_loop_edge_map(edge_names, maps, perm, 10)
     for key in loop:
         print(f"{key} -> {loop[key]}")
+
+    # check if loop maps every edge over every other edge
+    letters = 'abcde'
+    for let1 in letters:
+        all_mapped_to = True
+        for let2 in letters:
+            if let2 not in loop[let1].lower():
+                all_mapped_to = False
+        if not all_mapped_to:
+            print('yikes')
+        else:
+            print(f"{let1} maps every edge over every other edge.")

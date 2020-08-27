@@ -17,7 +17,7 @@ def dir_from_edge_maps(edge_maps):
     '''Given a dict representing where each edge (key) goes under a map, this function
     returns the corresponding direction map.
 
-    For example, {"a", "def"} -> {"a": "d", "A", "F"}
+    For example, {"a", "def"} -> {"a": "d", "A": "F"}
     '''
     dir_maps = {}
     for key in edge_maps:
@@ -31,6 +31,23 @@ def get_loop_dir_map(edge_names, maps, perm, order = None):
     times. The function returns the resulting direction maps.
     '''
     return dir_from_edge_maps(em.get_loop_edge_map(edge_names, maps, perm, order))
+
+def dir_map_to_turn_list(dir_map, turn_list):
+    '''Given a direction map (dict) containing all directions (forwards and backwards) and
+    a list of turns, this function applies the direction maps to each turn and returns a
+    new list of turns.
+
+    Each individual turn will be sorted, but the list of turns will not. Duplicates will
+    not be removed.
+    '''
+    i = 0
+    new = []
+    while i < len(turn_list):
+        to_add = [dir_map[turn_list[i][0]], dir_map[turn_list[i][1]]]
+        to_add.sort()
+        new.append(to_add)
+        i += 1
+    return new
 
 if __name__ == "__main__":
     #test apply_direction_map():
