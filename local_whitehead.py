@@ -15,7 +15,7 @@ def turns_from_path(path):
     return turns
 
 def get_whitehead(edge_maps):
-    '''This function returns the local whitehead graph of the map edge_maps.'''
+    '''This function returns the turns eventually taken by the map edge_maps.'''
     recent_turns = []
     all_turns = []
     dir_map = dm.dir_from_edge_maps(edge_maps)
