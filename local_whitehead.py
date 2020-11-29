@@ -45,28 +45,32 @@ if __name__ == "__main__":
     print(turns_from_path("aaaaaaa"))
     print(turns_from_path("abcabcAbCa"))
 
-    # test get_whitehead()
+    # Turns eventually taken for F
     edge_names = ['a','b','c','d','e']
     maps = [['c','cA'],
             ['b','bc'],
             ['c','cb'],
             ['d','Cd']]
     perm = [['a','b','c','d','e'], ['d','e','a','b','C']]
-    edge_maps = em.get_loop_edge_map(edge_names, maps, perm, 10)
+    edge_maps = em.get_loop_edge_map(edge_names, maps, perm, 10*3)
     wh1 = get_whitehead(edge_maps)
+    print("done one")
 
     del maps[0]
     maps.append(['a','aD'])
     edge_maps = em.get_loop_edge_map(edge_names, maps, perm, 10)
     wh2 = get_whitehead(edge_maps)
+    print("done two")
 
     del maps[0]
     maps.append(['e','ea'])
     edge_maps = em.get_loop_edge_map(edge_names, maps, perm, 10)
     wh3 = get_whitehead(edge_maps)
+    print("done three")
 
     del maps[0]
     maps.append(['a','ae'])
     edge_maps = em.get_loop_edge_map(edge_names, maps, perm, 10)
     wh4 = get_whitehead(edge_maps)
+    print("done four")
     

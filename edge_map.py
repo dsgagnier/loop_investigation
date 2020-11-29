@@ -72,6 +72,6 @@ if __name__ == "__main__":
             if let2 not in loop[let1].lower():
                 all_mapped_to = False
         if not all_mapped_to:
-            print('yikes')
+            print('yikes') # Something went wrong
         else:
             print(f"{let1} maps every edge over every other edge.")
