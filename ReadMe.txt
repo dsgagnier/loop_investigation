@@ -1,3 +1,7 @@
+The primary purpose of this program is to determine the local Whitehead graphs of train track maps. The program is built to accept train track maps as compositions of folds, and allows for reapplying sequences of folds with permutations on the edge names.
+
+
+
 Throughout this program, a switch of case indicates a reversal of orientation.
 Example: 'A' is the edge 'a' traversed in reverse.
 
